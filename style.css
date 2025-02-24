@@ -1,0 +1,447 @@
+/* CSS Variables for Themes */
+:root {
+    --bg-color: #f0f2f5; /* Светло-серый фон по умолчанию */
+    --sidebar-bg-color: #ffffff; /* Белый фон боковой панели по умолчанию */
+    --sidebar-border-color: #e0e0e0; /* Светлая граница боковой панели по умолчанию */
+    --input-area-bg-color: #ffffff; /* Белый фон input-area по умолчанию */
+    --input-area-border-color: #e0e0e0; /* Светлая граница input-area по умолчанию */
+    --chat-bg-color: #f0f2f5; /* Светло-серый фон чата по умолчанию */
+    --message-bot-bg-color: #ffffff; /* Белый фон сообщений бота по умолчанию */
+    --message-bot-border-color: #e0e0e0; /* Светлая граница сообщений бота по умолчанию */
+    --message-user-bg-color: #e0f7fa; /* Светло-зеленый фон сообщений пользователя по умолчанию */
+    --text-color: #333; /* Основной цвет текста по умолчанию */
+    --secondary-text-color: #555; /* Вторичный цвет текста по умолчанию (метки, иконки) */
+    --button-bg-color: #64b5f6; /* Цвет фона кнопок по умолчанию */
+    --button-hover-bg-color: #42a5f5; /* Цвет фона кнопок при наведении по умолчанию */
+    --input-focus-border-color: #64b5f6; /* Цвет границы input при фокусе по умолчанию */
+    --input-focus-shadow-color: rgba(100, 181, 246, 0.25); /* Тень input при фокусе по умолчанию */
+}
+
+/* Dark Theme */
+body.dark-theme {
+    --bg-color: #121212; /* Темно-серый фон для темной темы */
+    --sidebar-bg-color: #1e1e1e; /* Темный фон боковой панели для темной темы */
+    --sidebar-border-color: #333; /* Более темная граница боковой панели для темной темы */
+    --input-area-bg-color: #1e1e1e; /* Темный фон input-area для темной темы */
+    --input-area-border-color: #333; /* Более темная граница input-area для темной темы */
+    --chat-bg-color: #121212; /* Темно-серый фон чата для темной темы */
+    --message-bot-bg-color: #252525; /* Темный фон сообщений бота для темной темы */
+    --message-bot-border-color: #444; /* Более темная граница сообщений бота для темной темы */
+    --message-user-bg-color: #388e3c; /* Темно-зеленый фон сообщений пользователя для темной темы (пример) */
+    --text-color: #eee; /* Светлый цвет текста для темной темы */
+    --secondary-text-color: #ccc; /* Светлый вторичный цвет текста для темной темы */
+    --button-bg-color: #42a5f5; /* Более светлый синий цвет кнопок для темной темы */
+    --button-hover-bg-color: #64b5f6; /* Еще светлее синий цвет кнопок при наведении для темной темы */
+    --input-focus-border-color: #64b5f6; /* Светлый синий цвет границы input при фокусе для темной темы */
+    --input-focus-shadow-color: rgba(100, 181, 246, 0.5); /* Более интенсивная тень input при фокусе для темной темы */
+}
+
+body {
+    font-family: 'Open Sans', sans-serif; /* Open Sans для основного текста */
+    margin: 0;
+    display: flex;
+    overflow: hidden;
+    background-color: var(--bg-color); /* Используем CSS переменную для фона */
+    color: var(--text-color); /* Используем CSS переменную для основного цвета текста */
+}
+
+.sidebar {
+    width: 280px;
+    height: 100vh;
+    background-color: var(--sidebar-bg-color); /* Используем CSS переменную для фона боковой панели */
+    position: fixed;
+    left: -280px;
+    top: 0;
+    transition: left 0.4s ease-in-out;
+    z-index: 100;
+    box-shadow: 3px 0 15px rgba(0, 0, 0, 0.1); /* Немного усилим тень боковой панели */
+    padding: 35px 30px; /* Увеличенные отступы */
+    box-sizing: border-box;
+    border-right: 1px solid var(--sidebar-border-color); /* Используем CSS переменную для границы боковой панели */
+}
+
+.sidebar-content {
+    padding: 0;
+}
+
+.sidebar h2 {
+    font-family: 'Nunito Sans', sans-serif; /* Nunito Sans для заголовков боковой панели */
+    margin-top: 0;
+    margin-bottom: 20px; /* Уменьшим отступ снизу */
+    color: var(--secondary-text-color); /* Используем CSS переменную для вторичного цвета текста в боковой панели */
+    font-size: 1.4em; /* Немного уменьшим размер шрифта заголовка */
+    font-weight: 700; /* Сделаем заголовки жирнее */
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--sidebar-border-color); /* Используем CSS переменную для границы заголовка боковой панели */
+    padding-bottom: 15px; /* Отступ от разделительной линии */
+    margin-bottom: 25px; /* Увеличим отступ после заголовка и разделителя */
+}
+
+.sidebar-icon {
+    margin-right: 10px;
+    font-size: 1.1em; /* Немного уменьшим размер иконки */
+    color: var(--secondary-text-color); /* Используем CSS переменную для вторичного цвета иконки */
+}
+
+.sidebar .setting-group {
+    margin-bottom: 25px; /* Увеличим отступ между группами настроек */
+}
+
+.sidebar label {
+    display: block;
+    margin-bottom: 10px; /* Увеличим отступ снизу от label */
+    color: var(--secondary-text-color); /* Используем CSS переменную для вторичного цвета текста label */
+    font-weight: 500; /* Сделаем label немного жирнее */
+    font-size: 0.95em; /* Немного уменьшим размер шрифта label */
+    font-family: 'Open Sans', sans-serif; /* Open Sans для элементов интерфейса */
+}
+
+.sidebar input[type="text"],
+.sidebar input[type="number"] { /* Добавим стиль и для input type="number" */
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px; /* Уменьшим отступ снизу input */
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Закруглим углы input */
+    box-sizing: border-box;
+    font-size: 1em;
+    font-family: 'Open Sans', sans-serif; /* Open Sans для элементов интерфейса */
+    background-color: var(--sidebar-bg-color); /* Фон input совпадает с фоном боковой панели */
+    color: var(--text-color); /* Цвет текста input */
+    border-color: var(--sidebar-border-color); /* Цвет границы input */
+}
+
+.sidebar button,
+.input-area button {
+    background-color: var(--button-bg-color); /* Используем CSS переменную для цвета фона кнопок */
+    color: white;
+    padding: 14px 22px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1em;
+    font-weight: 500;
+}
+
+.sidebar button:hover,
+.input-area button:hover {
+    background-color: var(--button-hover-bg-color); /* Используем CSS переменную для цвета фона кнопок при наведении */
+}
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    transition: margin-left 0.4s ease-in-out;
+    background-color: var(--chat-bg-color); /* Используем CSS переменную для фона чат-контейнера */
+}
+
+.chat-log {
+    flex-grow: 1;
+    padding: 35px; /* Увеличим отступы в chat-log */
+    overflow-y: auto;
+    border-bottom: 1px solid var(--input-area-border-color); /* Используем CSS переменную для границы chat-log */
+}
+
+.message {
+    padding: 16px 22px; /* Увеличим padding сообщений */
+    margin-bottom: 18px; /* Увеличим отступ снизу сообщений */
+    border-radius: 30px; /* Еще больше закруглим углы сообщений */
+    clear: both;
+    word-wrap: break-word;
+    max-width: 80%; /* Увеличим максимальную ширину сообщений */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08); /* Усилим тень */
+    font-size: 1em; /* Увеличим размер шрифта в сообщениях */
+    line-height: 1.5; /* Увеличим межстрочный интервал для лучшей читаемости */
+    font-family: 'Open Sans', sans-serif; /* Open Sans для элементов интерфейса */
+    color: var(--text-color); /* Используем CSS переменную для цвета текста сообщений */
+    transition: all 0.3s ease;
+    min-height: 20px;
+}
+
+.user-message {
+    background-color: var(--message-user-bg-color); /* Используем CSS переменную для фона сообщений пользователя */
+    align-self: flex-end;
+    float: right;
+}
+
+.bot-message {
+    background-color: var(--message-bot-bg-color);
+    align-self: flex-start;
+    float: left;
+    border: 1px solid var(--message-bot-border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.bot-message.error {
+    background-color: #ffdddd; /* Светло-красный для error */
+    border: 1px solid #ffcdd2; /* Более светлая красная граница */
+    color: var(--text-color); /* Цвет текста error-сообщений */
+}
+
+.input-area {
+    padding: 20px 30px; /* Уменьшим вертикальный padding */
+    display: flex;
+    align-items: center;
+    border-top: 1px solid var(--input-area-border-color); /* Используем CSS переменную для границы input-area */
+    background-color: var(--input-area-bg-color); /* Используем CSS переменную для фона input-area */
+}
+
+.input-area input[type="text"] {
+    flex-grow: 1;
+    padding: 14px; /* Увеличим padding поля ввода */
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Закруглим углы поля ввода */
+    margin-right: 15px;
+    font-size: 1em;
+    outline: none; /* Уберем стандартную обводку при фокусе */
+    transition: border-color 0.3s ease; /* Плавная анимация границы */
+    font-family: 'Open Sans', sans-serif; /* Open Sans для элементов интерфейса */
+    background-color: var(--input-area-bg-color); /* Фон input совпадает с фоном input-area */
+    color: var(--text-color); /* Цвет текста input */
+    border-color: var(--input-area-border-color); /* Цвет границы input */
+}
+
+.input-area input[type="text"]:focus {
+    border-color: var(--input-focus-border-color); /* Используем CSS переменную для цвета границы input при фокусе */
+    box-shadow: 0 0 0 2px var(--input-focus-shadow-color); /* Используем CSS переменную для тени input при фокусе */
+}
+
+.notification-container {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8); /* Темный фон */
+    color: white;
+    padding: 15px 30px;
+    border-radius: 8px;
+    z-index: 1000; /* Поверх всего */
+    opacity: 0; /* Изначально полностью прозрачен */
+    visibility: hidden; /* Изначально скрыт */
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out; /* Плавное появление/исчезновение */
+}
+
+.notification-container.show {
+    opacity: 1; /* Полностью видим */
+    visibility: visible; /* Показываем */
+}
+
+.notification-message {
+    font-size: 1em;
+}
+
+/* Стили для контейнера поля ввода модели и кнопки "Популярные модели" */
+.model-input-container {
+    display: flex;
+    flex-direction: column; /* Вертикальное расположение элементов */
+    position: relative; /* Для позиционирования списка моделей */
+}
+
+.model-input-container input[type="text"] {
+    flex-grow: 1;
+    margin-right: 0; /* Убираем отступ справа от поля ввода */
+    margin-bottom: 10px; /* Добавляем отступ снизу от поля ввода, чтобы отделить от кнопки */
+}
+
+.popular-models-button {
+    position: static; /* Возвращаем статичное позиционирование */
+    top: auto; /* Сброс top */
+    right: auto; /* Сброс right */
+    background-color: transparent; /* Прозрачный фон */
+    color: #777; /* Серый цвет текста */
+    border: 1px solid #ccc; /* Серая граница */
+    border-radius: 6px;
+    padding: 8px 12px; /* Немного увеличим горизонтальный padding */
+    cursor: pointer;
+    font-size: 0.9em; /* Возвращаем исходный размер шрифта */
+    transition: background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease; /* Transition для opacity */
+    opacity: 0.8; /* Полупрозрачная кнопка */
+    align-self: flex-start; /* Выравнивание по левому краю контейнера */
+    display: none; /* Скрыть кнопку по умолчанию */
+}
+
+.popular-models-button:hover {
+    background-color: #f0f0f0; /* Светло-серый фон при наведении */
+    color: #333; /* Темно-серый цвет текста при наведении */
+    opacity: 1; /* Непрозрачная кнопка при наведении */
+}
+
+/* Стили для списка популярных моделей */
+.popular-models-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 5px;
+    padding: 15px;
+    z-index: 101;
+    display: none;
+    overflow-x: auto;
+    white-space: nowrap;
+    list-style: none; /* Убираем маркеры списка */
+}
+
+.popular-models-list.show {
+    display: block; /* Меняем flex на block */
+    max-height: 300px; /* Ограничиваем высоту */
+    overflow-y: auto; /* Добавляем вертикальную прокрутку */
+}
+
+.popular-models-list li {
+    width: 100%; /* Занимает всю ширину контейнера */
+    min-width: auto; /* Убираем фиксированную ширину */
+    margin-bottom: 8px; /* Отступ между элементами */
+    text-align: left; /* Выравнивание текста по левому краю */
+    white-space: normal; /* Перенос текста */
+}
+
+.popular-models-list li:last-child {
+    margin-bottom: 0; /* Убираем отступ у последнего элемента */
+}
+
+/* Стили для контейнера слайдера температуры */
+.slider-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Расстояние между слайдером и значением */
+}
+
+/* Стили для ползунка температуры */
+#temperature-slider {
+    flex-grow: 1; /* Занимает доступное пространство */
+    -webkit-appearance: none; /* Убираем стандартные стили браузера для Chrome/Safari */
+    appearance: none;
+    height: 8px; /* Высота слайдера */
+    background: #d3d3d3; /* Серый фон слайдера */
+    border-radius: 5px;
+    outline: none; /* Убираем обводку при фокусе */
+    -webkit-transition: .2s; /* Плавный переход для Chrome/Safari */
+    transition: opacity .2s;
+}
+
+#temperature-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px; /* Ширина "бегунка" */
+    height: 20px; /* Высота "бегунка" */
+    background: #64b5f6; /* Синий цвет "бегунка" */
+    cursor: pointer;
+    border-radius: 50%; /* Круглая форма "бегунка" */
+}
+
+#temperature-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #64b5f6;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+/* Стили для значения температуры */
+.temperature-value {
+    width: 35px; /* Фиксированная ширина для значения */
+    text-align: right; /* Выравнивание текста по правому краю */
+    font-size: 0.9em;
+    color: var(--text-color); /* Используем CSS переменную для основного цвета текста */
+}
+
+
+/* Стили для переключателя темы */
+.theme-setting {
+    margin-top: 25px; /* Отступ сверху от настроек температуры */
+    border-top: 1px solid #e0e0e0; /* Разделительная линия */
+    padding-top: 20px; /* Отступ сверху от разделительной линии */
+}
+
+.theme-switcher {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Равномерное распределение меток и переключателя */
+}
+
+.theme-label {
+    font-size: 0.9em;
+    color: var(--secondary-text-color); /* Используем CSS переменную для вторичного цвета текста в боковой панели */
+}
+
+.light-theme-label {
+    margin-right: 15px; /* Отступ справа от "Светлая" */
+}
+
+.dark-theme-label {
+    margin-left: 15px; /* Отступ слева от "Темная" */
+}
+
+
+/* Стили для кастомного переключателя (checkbox) */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 45px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3; /* Цвет активного состояния */
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(21px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* Добавление стиля для элементов списка моделей при наведении */
+.popular-models-list li:hover {
+    background-color: #f0f0f0; /* Светло-серый фон при наведении */
+} 
